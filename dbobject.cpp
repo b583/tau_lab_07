@@ -28,6 +28,11 @@ class DbObject {
     public: std::string getName() {
         return name;
     }
+
+    public: void setName(std::string name) {
+        this->name = name;
+    }
+    
 };
 
 #endif

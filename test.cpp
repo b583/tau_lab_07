@@ -43,3 +43,13 @@ TEST_CASE("DbAccess - remove object") {
     CHECK_THROWS(dbAccess.find(0));
     CHECK_THROWS(dbAccess.remove(0));
 }
+
+TEST_CASE("DbAccess - update object") {
+    DbAccess dbAccess = DbAccess();
+    DbObject object = DbObject("My object");
+    object = dbAccess.add(object);
+    object.setName("Modified object");
+    dbAccess.update(object);
+    object = dbAccess.find(0);
+    REQUIRE( object.getName() == "Modified object" );
+}

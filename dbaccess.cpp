@@ -37,6 +37,11 @@ class DbAccess {
         throw -1;
     }
 
+    public: void update(DbObject object) {
+        remove(object.getId());
+        db.push_back(object);
+    }
+
 };
 
 #endif
