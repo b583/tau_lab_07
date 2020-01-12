@@ -18,9 +18,20 @@ class DbAccess {
 
     public: DbObject find(int id) {
         std::list<DbObject>::iterator it = db.begin();
-        for (it; it != db.end(); ++it){
+        for(it; it != db.end(); ++it){
             if(it->getId() == id) {
                 return *it;
+            }
+        }
+        throw -1;
+    }
+
+    public: void remove(int id) {
+        std::list<DbObject>::iterator it = db.begin();
+        for(it; it != db.end(); ++it){
+            if(it->getId() == id) {
+                db.erase(it);
+                return;
             }
         }
         throw -1;

@@ -32,4 +32,14 @@ TEST_CASE("DbAccess - find object") {
     DbObject object = DbObject("My object");
     dbAccess.add(object);
     REQUIRE( dbAccess.find(0).getId() == 0 );
+    CHECK_THROWS(dbAccess.find(12));
+}
+
+TEST_CASE("DbAccess - remove object") {
+    DbAccess dbAccess = DbAccess();
+    DbObject object = DbObject("My object");
+    dbAccess.add(object);
+    dbAccess.remove(0);
+    CHECK_THROWS(dbAccess.find(0));
+    CHECK_THROWS(dbAccess.remove(0));
 }
