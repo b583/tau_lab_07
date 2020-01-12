@@ -2,6 +2,7 @@
 #include "lib/catch.hpp"
 #include "ainteger.cpp"
 #include "dbobject.cpp"
+#include "dbaccess.cpp"
 
 TEST_CASE("Atomic Integer works") {
     AtomicInteger atomicInteger = AtomicInteger();
@@ -17,5 +18,11 @@ TEST_CASE("Db Object works") {
     dbObject.setId(12);
     REQUIRE( dbObject.getId() == 12 );
     CHECK_THROWS(dbObject.setId(13));
-    // TODO set id, check id, verify that id cant be set again
+}
+
+TEST_CASE("DbAccess - add object") {
+    DbAccess dbAccess = DbAccess();
+    DbObject object = DbObject("My object");
+    object = dbAccess.add(object);
+    REQUIRE( object.getId() == 0 );
 }
