@@ -1,3 +1,6 @@
+#ifndef DB_ACCESS
+#define DB_ACCESS
+
 #include "dbobject.cpp"
 #include "ainteger.cpp"
 #include <list>
@@ -13,4 +16,16 @@ class DbAccess {
         return object;
     }
 
+    public: DbObject find(int id) {
+        std::list<DbObject>::iterator it = db.begin();
+        for (it; it != db.end(); ++it){
+            if(it->getId() == id) {
+                return *it;
+            }
+        }
+        throw -1;
+    }
+
 };
+
+#endif

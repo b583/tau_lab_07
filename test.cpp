@@ -26,3 +26,10 @@ TEST_CASE("DbAccess - add object") {
     object = dbAccess.add(object);
     REQUIRE( object.getId() == 0 );
 }
+
+TEST_CASE("DbAccess - find object") {
+    DbAccess dbAccess = DbAccess();
+    DbObject object = DbObject("My object");
+    dbAccess.add(object);
+    REQUIRE( dbAccess.find(0).getId() == 0 );
+}

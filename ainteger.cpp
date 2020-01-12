@@ -1,3 +1,6 @@
+#ifndef ATOMIC_INTEGER
+#define ATOMIC_INTEGER
+
 class AtomicInteger {
 
     int i = 0;
@@ -9,3 +12,5 @@ class AtomicInteger {
     }
 
 };
+
+#endif

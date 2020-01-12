@@ -1,3 +1,6 @@
+#ifndef DB_OBJECT
+#define DB_OBJECT
+
 #include <string>
 
 class DbObject {
@@ -26,3 +29,5 @@ class DbObject {
         return name;
     }
 };
+
+#endif
